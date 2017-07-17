@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Config } from './shared/config/env.config';
 import './operators';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * This class represents the main application component.
@@ -12,7 +13,10 @@ import './operators';
   styleUrls: ['app.component.css'],
 })
 export class AppComponent {
-  constructor() {
-    console.log('Environment config', Config);
-  }
+	constructor(translate: TranslateService) {
+		console.log('Environment config', Config);
+
+		translate.setDefaultLang('en');
+		translate.use('en');
+	}
 }
